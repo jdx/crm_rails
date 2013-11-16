@@ -32,7 +32,7 @@ class Api::V1::CustomersController < ApplicationController
   def self.mongo
     return @mongo if @mongo
     if ENV['MONGOLAB_URI']
-      @mongo = Mongo::MongoClient.from_uri(ENV['MONGOLAB_URI']).db('crm')
+      @mongo = Mongo::MongoClient.from_uri(ENV['MONGOLAB_URI']).db()
     else
       @mongo = Mongo::MongoClient.new().db('crm')
     end
